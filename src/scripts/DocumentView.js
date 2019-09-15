@@ -1,8 +1,4 @@
-const isType = type =>
-  value =>
-    Object.prototype.toString.call(value) === `[object ${type}]`;
-
-const isString = isType("String");
+import {isString} from "./Helpers";
 
 function render(value, depth=0) {
   if (!value) {
@@ -16,7 +12,7 @@ function render(value, depth=0) {
     return `<ul>${children.join("")}</ul>`
   }
   if ("key" in value && "value" in value) {
-    
+
     return `<strong>${value.key}</strong><div>${render(value.value, depth + 1)}</div>`
   }
 }

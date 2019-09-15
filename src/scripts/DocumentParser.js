@@ -1,3 +1,5 @@
+import {capitalizeFirst} from "./Helpers";
+
 class EntryContainer {
   constructor(key) {
     this.key = key;
@@ -11,13 +13,6 @@ class EntryContainer {
   addListItem(value) {
     return this.value.push(value);
   }
-
-}
-
-function capitalizeFirst(text) {
-  const first = text.substring(0, 1);
-  const rest = text.substring(1);
-  return first.toUpperCase() + rest;
 }
 
 function tokenize(line) {

@@ -4,7 +4,8 @@ import copy from "rollup-plugin-copy-glob";
 import serve from "rollup-plugin-serve";
 import liveReload from "rollup-plugin-livereload";
 
-const production = !process.env.ROLLUP_WATCH;
+const watch = process.env.ROLLUP_WATCH;
+const production = !watch;
 
 export default {
   input: "src/main.js",
@@ -16,7 +17,7 @@ export default {
   plugins: [
     copy([
       { files: 'src/*.{html,css}', dest: 'public' },
-    ], { verbose: true, watch: true }),
+    ], { verbose: true, watch }),
     ...(production
       ? [
         babel({exclude: "node_modules/**"}),

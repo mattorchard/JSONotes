@@ -6,7 +6,6 @@
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
-    "dev": "npm-run-all --parallel start watch",
     "start": "serve public"
   },
   "repository": {
@@ -20,13 +19,15 @@
   },
   "homepage": "https://github.com/morch028/JSONotes#readme",
   "devDependencies": {
-    "rollup": "^1.21.3",
     "@babel/core": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
     "npm-run-all": "^4.1.5",
-    "rollup-plugin-terser": "^5.1.2",
+    "rollup": "^1.21.3",
     "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-copy": "^3.1.0",
+    "rollup-plugin-copy-glob": "^0.3.1",
+    "rollup-plugin-livereload": "^1.0.1",
+    "rollup-plugin-serve": "^1.0.1",
+    "rollup-plugin-terser": "^5.1.2",
     "serve": "^11.1.0"
   }
 }

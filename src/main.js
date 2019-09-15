@@ -141,8 +141,7 @@ function createDataTree(tokens) {
 
 function parseInput(text) {
     const tokens = text.split(/\s*?\n\s*?/).map(tokenize);
-    const dataTree = createDataTree(tokens);
-    return dataTree;
+    return createDataTree(tokens);
 }
 
 function isMap(value) {
@@ -212,7 +211,7 @@ function saveInput(event) {
 }
 
 function loadInput(element) {
-    element.value = localStorage.getItem("offline-document") || "";
+    element.value = localStorage.getItem("offline-document") || element.value;
 }
 
 

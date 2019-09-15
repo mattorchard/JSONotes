@@ -12,8 +12,10 @@ body {
 }
 .theme-root {
     background-color: white;
+    --theme-background-color: white;
     background-color: var(--theme-background-color);
     color: black;
+    --theme-text-color: black;
     color: var(--theme-text-color);
 }
 .theme-root .negative {

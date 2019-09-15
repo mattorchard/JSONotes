@@ -1,0 +1,85 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+* {
+    box-sizing: border-box;
+}
+.theme-root {
+    background-color: white;
+    background-color: var(--theme-background-color);
+    color: black;
+    color: var(--theme-text-color);
+}
+.theme-root .negative {
+    color: white;
+    color: var(--theme-background-color);
+    background-color: black;
+    background-color: var(--theme-text-color);
+}
+.editor-header {
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    box-shadow: 0 .25rem .5rem rgba(20,20,20,.2);
+}
+.editor-header > * {
+    margin: 0;
+}
+.editor-window {
+    display: flex;
+    height: 95vh;
+}
+.editor-window > .panel {
+    width: 50%;
+}
+.panel {
+    margin: 0;
+    overflow: auto;
+    display: flex;
+    height: auto;
+}
+.panel > * {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 1rem;
+}
+#inputArea {
+    resize: none;
+    min-width: 100%;
+    font: inherit;
+    border: 0;
+    outline: 0;
+    color: inherit;
+    background-color: inherit;
+}
+#visualOutput * {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+#visualOutput dd {
+    margin-left: 25px;
+}
+#visualOutput dd > ul {
+    padding-left: 0;
+}
+#visualOutput dt {
+    font-weight: bold;
+}
+
+#visualOutput > dl > dt {
+    font-size: larger;
+    text-decoration: underline;
+}
+
+input[type="color"] {
+    background: none;
+    border: 0;
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Notes Proto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
+    <script defer src="theme.js"></script>
+    <script defer src="main.js"></script>
+</head>
+<body class="theme-root">
+    <header class="negative editor-header">
+        <h1>JSONotes</h1>
+        <form id="themeForm">
+            <label>
+                Background: <input name="background-color" type="color" value="#ffffff">
+            </label>
+            <label>
+                Text: <input name="text-color" type="color" value="#000000">
+            </label>
+        </form>
+    </header>
+    <main class="editor-window">
+        <section class="panel">
+            <textarea id="inputArea"></textarea>
+        </section>
+        <section class="panel">
+            <div id="visualOutput"></div>
+        </section>
+    </main>
+    
+</body>
+</html> 

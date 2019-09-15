@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Notes Proto</title>
+    <title>JSONotes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
     <script defer src="theme.js"></script>
@@ -23,7 +23,19 @@
     </header>
     <main class="editor-window">
         <section class="panel">
-            <textarea id="inputArea"></textarea>
+<textarea aria-label="input" id="inputArea">
+Welcome to JSONotes:
+Quick Start:
+To get started just start typing on the left, and see your changes on the right
+Headings are added whenever you use a colon
+Sections end whenever you include an empty line
+
+Other cool stuff:
+You can create definition lists: just include text after the colon
+capitalization: happens on its own
+How do I save my changes?: Changes are saved automatically every time you stop typing
+What if I hate these colors?: Use the theme picker in the top right
+</textarea>
         </section>
         <section class="panel">
             <div id="visualOutput"></div>

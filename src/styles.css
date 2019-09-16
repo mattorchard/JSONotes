@@ -75,7 +75,7 @@ body {
     list-style: none;
 }
 
-#visualOutput > ul > li > strong {
+#visualOutput > ul > li > .key {
     text-decoration: underline;
     font-size: larger;
 }
@@ -102,19 +102,6 @@ body {
 
 #visualOutput ul ul ul ul ul ul {
     list-style-type: square;
-}
-
-.leaf > ul {
-    list-style: none;
-    display: block;
-}
-.leaf > ul > li {
-    display: inline;
-
-}
-
-.leaf > ul > li + li:before {
-    content: ", ";
 }
 
 input[type="color"] {

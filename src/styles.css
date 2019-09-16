@@ -104,6 +104,24 @@ body {
     list-style-type: square;
 }
 
+
+.leaf > ul {
+    background-color: red;
+}
+
+.leaf > ul {
+    list-style: none;
+    display: block;
+}
+.leaf > ul > li {
+    display: inline;
+
+}
+
+.leaf > ul > li + li:before {
+    content: ", ";
+}
+
 input[type="color"] {
     background: none;
     border: 0;

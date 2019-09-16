@@ -1,17 +1,25 @@
-import {capitalizeFirst} from "./Helpers";
+import {capitalizeFirst, isString} from "./Helpers";
 
 class EntryContainer {
   constructor(key) {
     this.key = key;
     this.value = [];
+    this.isLeaf = true;
   }
 
   addKeyValue(key, value) {
+    this.isLeaf = false;
     return this.value.push({key, value});
   }
 
   addListItem(value) {
+    this.isLeaf = this.isLeaf && isString(value);
     return this.value.push(value);
+  }
+
+  addEntryContainer(entryContainer) {
+    this.isLeaf = false;
+    return this.value.push(entryContainer)
   }
 }
 
@@ -60,19 +68,17 @@ function parseTokens(tokens) {
       } break;
       case "END": {
         if (stack.length > 1) {
-          const {key, value} = stack.pop();
+          const finishedContainer = stack.pop();
           lastContainer = stack[stack.length - 1];
-
-          const adjustedValue = value && value.length === 1 ? value[0] : value;
-          lastContainer.addKeyValue(key, adjustedValue);
+          lastContainer.addEntryContainer(finishedContainer);
         }
       } break;
     }
   });
   // Handles any omitted END tokens from the end of input
   while (stack.length > 1) {
-    const {key, value} = stack.pop();
-    stack[stack.length - 1].addKeyValue(key, value);
+    const finishedContainer = stack.pop();
+    stack[stack.length - 1].addEntryContainer(finishedContainer);
   }
   return stack[0].value;
 }

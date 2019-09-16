@@ -12,8 +12,8 @@ function render(value, depth=0) {
     return `<ul>${children.join("")}</ul>`
   }
   if ("key" in value && "value" in value) {
-    const clazz = value.isLeaf ? "leaf" : "";
-    return `<strong>${value.key}</strong><div class="${clazz}">${render(value.value, depth + 1)}</div>`
+    const clazz = value.isLeaf ? "leaf value" : "value";
+    return `<strong class="key">${value.key}</strong><div class="${clazz}">${render(value.value, depth + 1)}</div>`
   }
 }
 

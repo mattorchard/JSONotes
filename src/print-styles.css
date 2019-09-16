@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+}
+.no-print {
+    display: none!important;
+}
+#visualOutput {
+    font-size: 12px;
+    margin: 0;
+}
+
+#visualOutput > ul > li > .key {
+    text-decoration: underline;
+}
+
+#visualOutput > ul {
+    column-count: 2;
+}
+
+#visualOutput ul {
+    padding-left: 10px;
+}
+
+#visualOutput ul {
+    border: 1px solid lightgray;
+}
+
+
+#visualOutput .leaf > ul {
+    list-style: none;
+    display: inline;
+    border: none;
+}
+#visualOutput .leaf > ul > li {
+    display: inline;
+}
+
+#visualOutput .leaf > ul > li + li:before {
+    content: ", ";
+}
+
+#visualOutput .value {
+    display: inline;
+}
+#visualOutput .value::before {
+    content: ": "
+}

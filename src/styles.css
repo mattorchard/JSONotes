@@ -44,7 +44,6 @@ body {
 }
 .panel {
     margin: 0;
-    overflow: auto;
     display: flex;
     height: auto;
 }
@@ -53,6 +52,12 @@ body {
     margin-bottom: 0;
     padding: 1rem;
 }
+
+#visualOutput {
+    width: 100%;
+    overflow-y: auto;
+}
+
 #inputArea {
     resize: none;
     min-width: 100%;
@@ -107,4 +112,26 @@ body {
 input[type="color"] {
     background: none;
     border: 0;
+}
+
+
+#visualOutput::-webkit-scrollbar,
+#inputArea::-webkit-scrollbar {
+    width: 12px;
+}
+
+#visualOutput::-webkit-scrollbar-thumb,
+#inputArea::-webkit-scrollbar-thumb {
+    background-color: black;
+    background-color: var(--theme-text-color);
+}
+
+#visualOutput::-webkit-scrollbar-track,
+#inputArea::-webkit-scrollbar-track {
+    background-color: white;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    background-color: var(--theme-background-color);
+    border-left: 1px solid var(--theme-text-color);
+    border-right: 1px solid var(--theme-text-color);
 }

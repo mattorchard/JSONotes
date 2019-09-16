@@ -66,19 +66,55 @@ body {
     margin-top: 0;
     margin-bottom: 0;
 }
-#visualOutput dd {
-    margin-left: 25px;
-}
-#visualOutput dd > ul {
-    padding-left: 0;
-}
-#visualOutput dt {
-    font-weight: bold;
+#visualOutput ul {
+    padding-left: 25px;
 }
 
-#visualOutput > dl > dt {
-    font-size: larger;
+#visualOutput > ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+#visualOutput > ul > li > strong {
     text-decoration: underline;
+    font-size: larger;
+}
+
+#visualOutput ul ul {
+    list-style-type: disc;
+}
+
+#visualOutput ul ul ul {
+    list-style-type: circle;
+}
+
+#visualOutput ul ul ul ul {
+    list-style-type: square;
+}
+
+#visualOutput ul ul ul ul ul {
+    list-style-type: disc;
+}
+
+#visualOutput ul ul ul ul ul ul {
+    list-style-type: circle;
+}
+
+#visualOutput ul ul ul ul ul ul {
+    list-style-type: square;
+}
+
+.leaf > ul {
+    list-style: none;
+    display: block;
+}
+.leaf > ul > li {
+    display: inline;
+
+}
+
+.leaf > ul > li + li:before {
+    content: ", ";
 }
 
 input[type="color"] {

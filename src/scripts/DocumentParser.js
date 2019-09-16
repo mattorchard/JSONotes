@@ -1,53 +1,26 @@
+import {capitalizeFirst, isString} from "./Helpers";
+
 class EntryContainer {
   constructor(key) {
     this.key = key;
-    this.map = new Map();
-    this.array = [];
+    this.value = [];
+    this.isLeaf = true;
   }
 
   addKeyValue(key, value) {
-    return this.map.set(key, value);
+    this.isLeaf = false;
+    return this.value.push({key, value});
   }
 
   addListItem(value) {
-    return this.array.push(value);
+    this.isLeaf = this.isLeaf && isString(value);
+    return this.value.push(value);
   }
 
-  getArrayKeyName(base="Other") {
-    if (!(base in this.map)) {
-      return base;
-    }
-    for (let i = 1; i < 100; i++) {
-      const key = `${base} (${i})`;
-      if (!(key in this.map)) {
-        return key;
-      }
-    }
-    console.warn("Tried 100 different names, but all were taken");
-    return base;
+  addEntryContainer(entryContainer) {
+    this.isLeaf = false;
+    return this.value.push(entryContainer)
   }
-
-  get value() {
-    const hasKeyValues = this.map.size > 0;
-    const hasListItems = this.array.length > 0;
-
-    if (hasKeyValues && hasListItems) {
-      this.map.set(this.getArrayKeyName(), this.array);
-      return this.map;
-    } else if (hasListItems) {
-      return this.array;
-    } else if (hasKeyValues) {
-      return this.map;
-    } else {
-      return null;
-    }
-  }
-}
-
-function capitalizeFirst(text) {
-  const first = text.substring(0, 1);
-  const rest = text.substring(1);
-  return first.toUpperCase() + rest;
 }
 
 function tokenize(line) {
@@ -95,19 +68,17 @@ function parseTokens(tokens) {
       } break;
       case "END": {
         if (stack.length > 1) {
-          const {key, value} = stack.pop();
+          const finishedContainer = stack.pop();
           lastContainer = stack[stack.length - 1];
-
-          const adjustedValue = value && value.length === 1 ? value[0] : value;
-          lastContainer.addKeyValue(key, adjustedValue);
+          lastContainer.addEntryContainer(finishedContainer);
         }
       } break;
     }
   });
   // Handles any omitted END tokens from the end of input
   while (stack.length > 1) {
-    const {key, value} = stack.pop();
-    stack[stack.length - 1].addKeyValue(key, value);
+    const finishedContainer = stack.pop();
+    stack[stack.length - 1].addEntryContainer(finishedContainer);
   }
   return stack[0].value;
 }

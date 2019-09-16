@@ -104,11 +104,6 @@ body {
     list-style-type: square;
 }
 
-
-.leaf > ul {
-    background-color: red;
-}
-
 .leaf > ul {
     list-style: none;
     display: block;
